@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kube-port-mismatch
+  labels:
+    app.kubernetes.io/name: app
+spec:
+  containers:
+  - name: kube-port-mismatch
+    image: kube-port-mismatch-app:latest
+    imagePullPolicy: Never
+    ports:
+      - containerPort: 8765

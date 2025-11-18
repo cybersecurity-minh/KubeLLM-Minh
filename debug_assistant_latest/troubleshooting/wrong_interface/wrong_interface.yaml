@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kube-wrong-interface
+  labels:
+    app: kube-wrong-interface
+spec:
+  containers:
+  - name: kube-wrong-interface
+    image: kube-wrong-interface-app:latest
+    imagePullPolicy: Never
+    ports:
+    - containerPort: 8765

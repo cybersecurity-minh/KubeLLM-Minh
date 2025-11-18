@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kube-liveness
+spec:
+  containers:
+  - name: kube-liveness
+    image: kube-liveness-app
+    imagePullPolicy: Never  
+    ports:
+            - containerPort: 8765
+    livenessProbe:
+      httpGet:
+        path: /incorrect-health
+        port: 8765
+      initialDelaySeconds: 30
+      periodSeconds: 10
